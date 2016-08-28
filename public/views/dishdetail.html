@@ -1,5 +1,18 @@
 
-    <div class="container" ng-controller="DishDetailController">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+               <ul class="breadcrumb">
+                   <li><a href="index.html">Home</a></li>
+                   <li><a href="index.html#/menu">Menu</a></li>
+                   <li class="active">Dish Details</li>
+               </ul>
+            </div>
+            <div class="col-xs-12">
+               <h3>Dish Details</h3>
+               <hr>
+            </div>
+        </div>
         <div class="row row-content">
             <div class="col-xs-12" ng-if="!showDish">
                 <h3>{{message}}</h3>
@@ -36,7 +49,7 @@
                         <blockquote> 
                             <p>{{cmt.rating}} Stars</p>
                             <p>{{cmt.comment}}</p>
-                            <footer>{{cmt.author}}, {{cmt.date | date : 'MMM dd, y'}}</footer>
+                            <footer>{{cmt.postedBy.firstname}} {{cmt.postedBy.lastname}}, {{cmt.updatedAt | date:'MMM. dd, yyyy'}}</footer>
                         </blockquote>
                     </li>
                 </ul>
@@ -47,23 +60,11 @@
                             <blockquote> 
                                 <p>{{mycomment.rating}} Stars</p>
                                 <p>{{mycomment.comment}}</p>
-                                <footer>{{mycomment.author}}</footer>
                             </blockquote>
                         </li>
                     </ul>
                 <form class="form-horizontal" role="form" name="commentForm" ng-submit=
                     "submitComment()" novalidate>
-					<div class="form-group" ng-class="{'has-error' : commentForm.name.$error.
-                    required && !commentForm.name.$pristine }">
-                        <label for="name" class="col-sm-3 control-label">Your Name</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control" id="name" name="name" 
-                                placeholder="Enter Your Name" ng-model="mycomment.author" required>
-                            <span ng-show="commentForm.name.$error.required && 
-                            !commentForm.name.$pristine" class="help-block">Your Name is required.
-                            </span>
-                        </div>
-					</div>
 					<div class="form-group">
                         <label for="stars" class="col-sm-3 control-label">Number of Stars</label>
                         <div class="col-sm-9">
