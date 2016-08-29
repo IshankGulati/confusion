@@ -1,3 +1,5 @@
 node_modules/
-^#*
+^#[a-z A-Z]*\.[a-z A-Z]*#$
 npm-debug.log
+bower_components/
+^[a-z A-Z]*\.[a-z A-Z]*~$
